@@ -1,0 +1,6 @@
+build() {
+  cd sexpresso-master
+  g++ -fPIC -pedantic -O3 '-std=c++11' -c sexpresso/sexpresso.cpp
+  g++ sexpresso.o -shared -o libsexpresso.so
+}
+

@@ -1,0 +1,8 @@
+package() {
+  cd sexpresso-master
+  mkdir -p "$pkgdir/usr/local/lib/"
+  mkdir -p "$pkgdir/usr/local/include/"
+  mv libsexpresso.so "$pkgdir/usr/local/lib/"
+  cp -r sexpresso/sexpresso.hpp "$pkgdir/usr/local/include/"
+  cp -r sexpresso_std/sexpresso_std.hpp "$pkgdir/usr/local/include/"
+}

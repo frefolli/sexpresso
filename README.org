@@ -8,6 +8,10 @@ Sexpresso aims to be very simple, nodes are parsed either as s-expressions or st
 a number would be parsed a string, so if you expect a node to be a number, please convert the
 string to a number!
 
+* Arch Package Building
+
+Inside `pkgbuild/` directory there's a `craft.sh` script: this "crafts" a PKGBUILD from using fixed-sources (linked to my repo as an example) in order to distribute this library as shared-object plus headers. With a quick `makepkg -s` it is possibile to verify correctness of the packaging.
+
 * How to use
 
 By default Sexpresso uses [[http://doc.cat-v.org/bell_labs/pikestyle][pike style]] which means that it does *not* include any header files

@@ -1,0 +1,29 @@
+# Contributor: Kenji Brameld <kenjibrameld@gmail.com>
+# Contributor: Matt Pharr <>
+# Maintainer: Refolli Francesco <francesco.refolli@gmail.com>
+
+pkgname=sexpresso-git
+pkgver=master
+pkgrel=1
+pkgdesc="S-expression parser for C++"
+arch=('any')
+url="https://github.com/frefolli/sexpresso"
+license=('BSD')
+makedepends=('gcc')
+source=("sexpresso-master.tar.gz::https://github.com/frefolli/sexpresso/archive/master.tar.gz")
+
+sha256sums=('d0872e159795e663a4d77d3c77138aa37182b85376fe89c546e189c431386c22')
+build() {
+  cd sexpresso-master
+  g++ -fPIC -pedantic -O3 '-std=c++11' -c sexpresso/sexpresso.cpp
+  g++ sexpresso.o -shared -o libsexpresso.so
+}
+
+package() {
+  cd sexpresso-master
+  mkdir -p "$pkgdir/usr/local/lib/"
+  mkdir -p "$pkgdir/usr/local/include/"
+  mv libsexpresso.so "$pkgdir/usr/local/lib/"
+  cp -r sexpresso/sexpresso.hpp "$pkgdir/usr/local/include/"
+  cp -r sexpresso_std/sexpresso_std.hpp "$pkgdir/usr/local/include/"
+}
