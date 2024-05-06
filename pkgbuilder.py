@@ -13,6 +13,16 @@ class Pkgbuilder:
         self.print_sources()
         self.print_build()
         self.print_package()
+        self.print_options()
+
+    def print_options(self):
+        opts = []
+        for (k,v) in self.config["options"].items():
+            if v:
+                opts.append(k)
+            else:
+                opts.append("!" + k)
+        print("options=(%s)" % " ".join(opts))
 
     def print_person(self, person: dict):
         print("# %s: %s %s <%s>" % (
@@ -79,4 +89,7 @@ if __name__ == "__main__":
         "package": [
             "make DESTDIR=$pkgdir install"
         ],
+        "options": {
+            "debug": False
+        }
     }).print()
