@@ -1,19 +1,10 @@
 // Author: Isak Andersson 2016 bitpuffin dot com
 
 #define CATCH_CONFIG_MAIN
-#include "catch.hpp"
+#include "catch.hh"
 
-#include <vector>
-#include <string>
-#include <cstdint>
-#include "sexpresso.hpp"
-
-#include <ostream>
-#include "sexpresso_std.hpp"
-
+#include <sexpresso.hh>
 #include <sstream>
-
-using namespace sexpresso_std;
 
 TEST_CASE("<< operator") {
 	auto err = std::string{};

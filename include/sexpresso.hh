@@ -1,21 +1,16 @@
-// Author: Isak Andersson 2016 bitpuffin dot com
+// Original Author: Isak Andersson 2016 bitpuffin dot com
+// Further  Editor: Francesco Refolli 2024 frefolli
 
-// If you don't opt out, copy and paste dependencies before include
-#ifdef SEXPRESSO_OPT_OUT_PIKESTYLE
 #ifndef SEXPRESSO_HEADER
 #define SEXPRESSO_HEADER
 #include <vector>
 #include <string>
 #include <cstdint>
-// #include "sexpresso.hpp"
-#endif
-#endif
+#include <ostream>
 
 namespace sexpresso {
 	enum class SexpValueKind : uint8_t { SEXP, STRING };
-
 	struct SexpArgumentIterator;
-
 	struct Sexp {
 		Sexp();
 		Sexp(std::string const& strval);
@@ -63,3 +58,6 @@ namespace sexpresso {
 		auto empty() const -> bool;
 	};
 }
+
+auto operator<<(std::ostream& ostream, sexpresso::Sexp const& sexp) -> std::ostream&;
+#endif

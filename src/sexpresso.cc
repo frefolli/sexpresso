@@ -1,11 +1,5 @@
-// Author: Isak Andersson 2016 bitpuffin dot com
-
-#ifndef SEXPRESSO_OPT_OUT_PIKESTYLE
-#include <vector>
-#include <string>
-#include <cstdint>
-#endif
-#include "sexpresso.hpp"
+// Original Author: Isak Andersson 2016 bitpuffin dot com
+// Further  Editor: Francesco Refolli 2024 frefolli
 
 #include <cctype>
 #include <stack>
@@ -13,6 +7,7 @@
 #include <sstream>
 #include <array>
 #include <iostream>
+#include <sexpresso.hh>
 
 namespace sexpresso {
 	Sexp::Sexp() {
@@ -402,4 +397,9 @@ namespace sexpresso {
 		auto sz = this->sexp.value.sexp.size();
 		if(sz == 0) return 0; else return sz-1;
 	}
+}
+
+auto operator<<(std::ostream& ostream, sexpresso::Sexp const& sexp) -> std::ostream& {
+  ostream << sexp.toString();
+  return ostream;
 }

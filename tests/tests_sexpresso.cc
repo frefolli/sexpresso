@@ -1,12 +1,8 @@
 // Author: Isak Andersson 2016 bitpuffin dot com
 
 #define CATCH_CONFIG_MAIN
-#include "catch.hpp"
-
-#include <vector>
-#include <string>
-#include <cstdint>
-#include "sexpresso.hpp"
+#include "catch.hh"
+#include <sexpresso.hh>
 
 TEST_CASE("Empty string") {
 	auto str = std::string{};
