@@ -31,7 +31,7 @@ class Pkgbuilder:
 
     def print_sources(self):
         print("_archive='%s'" % self.config["archive"])
-        print("$pkgname-$pkgver.tar.gz::$_archive/$pkgver.tar.gz")
+        print("source=(\"$pkgname-$pkgver.tar.gz::$_archive/$pkgver.tar.gz\")")
         print("sha256sums=('%s')" % self.compute_hash())
 
     def compute_hash(self):
