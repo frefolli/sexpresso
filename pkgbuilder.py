@@ -68,7 +68,7 @@ if __name__ == "__main__":
         "pkgver": "master",
         "pkgrel": 1,
         "pkgdesc": "S-expression parser for C++",
-        "license": 'GPLv3',
+        "license": 'GPL-3.0-or-later',
         "arch": ['any'],
         "makedepends": ['gcc', 'meson'],
         "url": "https://github.com/frefolli/sexpresso",
