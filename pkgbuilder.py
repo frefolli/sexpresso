@@ -77,6 +77,6 @@ if __name__ == "__main__":
             "make BUILD_TYPE=release"
         ],
         "package": [
-            "make DESTDIR=$pkgdir"
+            "make DESTDIR=$pkgdir install"
         ],
     }).print()
