@@ -26,11 +26,11 @@ Download a copy of the project via Zip or via Git. Then an usual `make && sudo m
 auto parsetree = sexpresso::parse(mysexpr);
 ```
 
-This code will parse the ~std::string~ in mysexpr and return a Sexp struct value.
+This code will parse the **std::string** in mysexpr and return a Sexp struct value.
 There are two main things you can do with this value you can:
 
-1. Turn it back to a string with ~parsetree.toString()~
-2. Query it using ~parsetree.getChildByPath("path/to/node")~
+1. Turn it back to a string with **parsetree.toString()**
+2. Query it using **parsetree.getChildByPath("path/to/node")**
 
 Number 2 might be slightly confusing, how does it follow the path? Well if you've ever used lisp,
 you know that the /command/ in an s-expression is the first element. The same thing here determines
@@ -53,8 +53,8 @@ auto sub = parsetree.getChildByPath("my-values/hi");
 ```
 
 Note that you get the sexpr node that *contains* the value you
-were looking for as its first value. The sexpr then simply holds an ~std::vector~ of all the sub-values.
-However, it might not always use the vector, if it's simply a string value like ~just-a-thing~ in the
+were looking for as its first value. The sexpr then simply holds an **std::vector** of all the sub-values.
+However, it might not always use the vector, if it's simply a string value like **just-a-thing** in the
 above example, then the vector will be empty, and you need to access the string value instead.
 
 ```c++
@@ -76,8 +76,8 @@ case sexpresso::SexpValueKind::STRING:
 ```
 
 Sexpresso provides a comfortable way to iterate only over the "arguments of a s-expression.
-For example if we have an s-expression like ~(hi 1 2 3)~ then the arguments are ~1~, ~2~ and ~3~.
-If we've parsed and stored that s-expression in a variable called ~hi~, we iterate over its arguments
+For example if we have an s-expression like **(hi 1 2 3)** then the arguments are **1**, **2** and **3**.
+If we've parsed and stored that s-expression in a variable called **hi**, we iterate over its arguments
 like this:
 
 ```c++
@@ -91,8 +91,8 @@ for(auto&& it = hi.arguments().begin(); it != hi.arguments().end(); ++it) {
 }
 ```
 
-You can also check if the arguments are empty and how many there are with the ~empty~ and ~size~ methods
-of the ~SexpArgumentIterator~ class.
+You can also check if the arguments are empty and how many there are with the **empty** and **size** methods
+of the **SexpArgumentIterator** class.
 
 *WARNING* Be *REALLY* careful that your query result does not exceed the lifetime of
 the parse tree:
@@ -107,9 +107,9 @@ cout << sub.toString(); // BAD!
 ```
 
 ### Serializing
-Sexp structs have an ~addChild~ method that takes a Sexp method. Furthermore, Sexp has a constructor
+Sexp structs have an **addChild** method that takes a Sexp method. Furthermore, Sexp has a constructor
 that takes a std::string, so this should make it really easy to build your own Sexp objects from code that
-you can serialize with ~toString~.
+you can serialize with **toString**.
 
 ```c++
 auto myvalues = sexpresso::Sexp{"my-values"};
@@ -140,8 +140,8 @@ std::cout << sexp.toString();
 
 The outermost s-expression does not get surrounded by paretheses when calling toString, as it treats a string
 as being implicitly surrounded by parentheses. This is so that you can have multiple s-expressions in the "root"
-of your code, and serialization goes back to text the same way it came in. That's why we have the ~sexp~
-in the above code example. If we simply called ~toString~ on ~myvaluesholder~ we would get
+of your code, and serialization goes back to text the same way it came in. That's why we have the **sexp**
+in the above code example. If we simply called **toString** on **myvaluesholder** we would get
 
 ```lisp
 my-values (sweet baby jesus) (hi mom) just-a-thing
@@ -171,7 +171,7 @@ like this:
 (here we have an s-expression)
 ```
 
-What you see here is a list of 5 symbols: ~here~, ~we~, ~have~, ~an~ and ~s-expression~.
+What you see here is a list of 5 symbols: **here**, **we**, **have**, **an** and **s-expression**.
 Like I said you can also put s-expressions inside s-expressions to create hierarchies:
 
 ```lisp
@@ -183,7 +183,7 @@ Like I said you can also put s-expressions inside s-expressions to create hierar
 ```
 
 And as you could see earlier in the [[How to use]] section you can query this hierachy easily with
-this library. Say that this s-expression is stored in a variable called ~objs~, you can query it like this:
+this library. Say that this s-expression is stored in a variable called **objs**, you can query it like this:
 
 ```c++
 auto joe = objs.getChildByPath("my-objects/object-b/name");
