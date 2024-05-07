@@ -1,6 +1,6 @@
 # Sexpresso
 
-Sexpresso is c++ centric [[https://en.wikipedia.org/wiki/S-expression][s-expression]] parser library. It uses value types and
+Sexpresso is c++ centric [s-expression](https://en.wikipedia.org/wiki/S-expression) parser library. It uses value types and
 move semantics and thus manages to completely avoid calling new/delete, so it's probably
 free from memory leaks!
 
