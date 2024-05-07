@@ -8,9 +8,15 @@ Sexpresso aims to be very simple, nodes are parsed either as s-expressions or st
 a number would be parsed a string, so if you expect a node to be a number, please convert the
 string to a number!
 
-## Arch Package Building
+## Installing
 
-Inside `pkgbuild/` directory there's a `craft.sh` script: this "crafts" a PKGBUILD from using fixed-sources (linked to my repo as an example) in order to distribute this library as shared-object plus headers. With a quick `makepkg -s` it is possibile to verify correctness of the packaging.
+### Arch Linux
+
+Inside the `tags` section of this page there's a PKGBUILD which is linked to the latest version. Download it and `makepkg -si` against it.
+
+### Other Environments
+
+Download a copy of the project via Zip or via Git. Then an usual `make && sudo make install` is sufficient. By default the installer puts libraries and headers inside `/usr/local/`. If you wish to install it in another directory the usage of $DESTDIR$ it's implemented and recommended.
 
 ## How to use
 
