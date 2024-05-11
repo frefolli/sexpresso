@@ -1,0 +1,6 @@
+Name: Sexpresso
+Description: S-expression parser for C++
+Requires:
+Version: 1.0.0
+Libs: -lsexpresso
+Cflags:

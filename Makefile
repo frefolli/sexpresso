@@ -21,5 +21,7 @@ test:
 install:
 	mkdir -p ${DESTDIR}/usr/local/lib/
 	mkdir -p ${DESTDIR}/usr/local/include/
+	mkdir -p ${DESTDIR}/usr/local/share/pkgconfig
 	mv builddir/libsexpresso.so ${DESTDIR}/usr/local/lib/
 	cp -r include/sexpresso.hh ${DESTDIR}/usr/local/include/
+	cp -r sexpresso.pc ${DESTDIR}/usr/local/share/pkgconfig
