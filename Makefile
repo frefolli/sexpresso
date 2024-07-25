@@ -3,6 +3,7 @@ LIB=./builddir/sexpresso.so
 INCLUDE=./include/*.hh
 SRC=./src/*.cc
 MESON_CONF=meson.build
+BUILD_TYPE=release
 
 @all: ${LIB}
 
@@ -19,9 +20,14 @@ test:
 	meson test
 
 install:
-	mkdir -p ${DESTDIR}/usr/local/lib/
-	mkdir -p ${DESTDIR}/usr/local/include/
-	mkdir -p ${DESTDIR}/usr/local/share/pkgconfig
-	mv builddir/libsexpresso.so ${DESTDIR}/usr/local/lib/
-	cp -r include/sexpresso.hh ${DESTDIR}/usr/local/include/
-	cp -r sexpresso.pc ${DESTDIR}/usr/local/share/pkgconfig
+	mkdir -p ${DESTDIR}/usr/lib/
+	mkdir -p ${DESTDIR}/usr/include/
+	mkdir -p ${DESTDIR}/usr/share/pkgconfig
+	mv builddir/libsexpresso.so ${DESTDIR}/usr/lib/
+	cp -r include/sexpresso.hh ${DESTDIR}/usr/include/
+	cp -r sexpresso.pc ${DESTDIR}/usr/share/pkgconfig
+	mkdir -p ${DESTDIR}/usr/share/doc/
+	cp -r doc/html ${DESTDIR}/usr/share/doc/sexpresso
+
+docs:
+	make -C doc
