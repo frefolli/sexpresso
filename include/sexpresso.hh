@@ -7,6 +7,7 @@
 #include <string>
 #include <cstdint>
 #include <ostream>
+#include <istream>
 
 namespace sexpresso {
 	enum class SexpValueKind : uint8_t { SEXP, STRING };
