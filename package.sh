@@ -80,7 +80,7 @@ function _package_rpm() {
   DISTRO=$1
   _setup_rpm_buildtree
   PACKAGE=${TARGETDIR}/rpm/SOURCES/${PKGNAME}-${VERSION}
-  RPM=${TARGETDIR}/rpm/RPMS/${ARCH}/${PKGNAME}-${VERSION}-${PKGREL}.${ARCH}.rpm
+  RPM=${TARGETDIR}/rpm/RPMS/${ARCH}/${PKGNAME}-${VERSION}-${PKGREL}.fc40.${ARCH}.rpm
   rm -rf ${PACKAGE} ${RPM}
   _reset ${PACKAGE}
   make install DESTDIR=${PACKAGE}

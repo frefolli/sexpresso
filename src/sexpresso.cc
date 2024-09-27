@@ -8,6 +8,7 @@
 #include <array>
 #include <iostream>
 #include <sexpresso.hh>
+#include <string>
 
 namespace sexpresso {
 	Sexp::Sexp() {
@@ -402,4 +403,20 @@ namespace sexpresso {
 auto operator<<(std::ostream& ostream, sexpresso::Sexp const& sexp) -> std::ostream& {
   ostream << sexp.toString();
   return ostream;
+}
+
+auto operator>>(std::istream& istream, sexpresso::Sexp& sexp) -> std::istream& {
+  std::string buf = "";
+  std::string line = "";
+  std::string err = "";
+  while (istream.good()) {
+    std::getline(istream, line);
+    buf.append(line);
+    buf.push_back('\n');
+    sexp = sexpresso::parse(buf, err);
+    if (err.empty())
+      break;
+    err.clear();
+  }
+  return istream;
 }

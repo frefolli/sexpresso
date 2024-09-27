@@ -60,4 +60,5 @@ namespace sexpresso {
 }
 
 auto operator<<(std::ostream& ostream, sexpresso::Sexp const& sexp) -> std::ostream&;
+auto operator>>(std::istream& istream, sexpresso::Sexp& sexp) -> std::istream&;
 #endif

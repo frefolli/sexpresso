@@ -38,3 +38,10 @@ if buildtype != 'release'
   test('Testing Sexpresso Library', tests_sexpresso)
   test('Testing Sexpresso STD integration', tests_sexpresso_std)
 endif
+
+repl = executable(
+'tests_repl', [
+  'tests/tests_repl.cc',
+  ], include_directories: [include, tests],
+link_with: sexpresso
+)
